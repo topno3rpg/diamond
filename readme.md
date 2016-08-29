@@ -44,11 +44,3 @@ DiamondManager diamondManager = DiamondClients.createSafeDiamondManager("demo", 
 Properties properties = diamondManager.getAvailablePropertiesConfigureInfomation(5000);
 </pre>
 </code>
-
-###管理后台
-
-http://config.aicai.com:12345/
-
-ps: config.aicai.com  -->  192.168.4.204
-
-admin / admin
