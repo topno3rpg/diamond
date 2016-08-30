@@ -15,7 +15,7 @@ import com.aicai.po.StudentPo;
  * Created by Admin on 2016/8/4.
  */
 
-@Service("StudentService")
+@Service("studentService")
 public class StudentServiceImpl implements StudentService {
 
     @Autowired
