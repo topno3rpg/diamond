@@ -2,10 +2,15 @@
 <configuration scanPeriod="10 minutes">
 
     <property name="logger.file.name" value="diamond-server-log"/>
-    <property name="default.level" value="INFO"/>
-    <property name="root.level" value="INFO"/>
 
-    <appender name="ErrorFile"
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n%rEx
+            </pattern>
+        </encoder>
+    </appender>
+
+    <appender name="ERRORFILE"
               class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>../logs/${logger.file.name}/error.log</file>
         <Append>true</Append>
@@ -24,7 +29,7 @@
         </filter>
     </appender>
 
-    <appender name="RootFile"
+    <appender name="ROOTFILE"
               class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>../logs/${logger.file.name}/root.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
@@ -37,10 +42,13 @@
         </encoder>
     </appender>
 
-    <logger name="com.taobao.diamond" level="${default.level}"/>
+    <logger name="com.taobao.diamond" level="${logger.level}">
+        <appender-ref ref="${root.file}"/>
+        <appender-ref ref="${error.file}}"/>
+    </logger>
 
-    <root level="${root.level}">
-        <appender-ref ref="RootFile"/>
-        <appender-ref ref="ErrorFile"/>
+    <root level="${logger.level}">
+        <appender-ref ref="${root.file}}"/>
+        <appender-ref ref="${error.file}}"/>
     </root>
 </configuration>

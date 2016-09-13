@@ -167,18 +167,7 @@
                 <artifactId>druid</artifactId>
                 <version>1.0.18</version>
             </dependency>
-            <!-- log4j -->
-            <dependency>
-                <groupId>log4j</groupId>
-                <artifactId>log4j</artifactId>
-                <version>1.2.17</version>
-            </dependency>
-            <!-- apache commons -->
-            <dependency>
-                <groupId>commons-logging</groupId>
-                <artifactId>commons-logging</artifactId>
-                <version>1.2</version>
-            </dependency>
+
             <dependency>
                 <groupId>commons-io</groupId>
                 <artifactId>commons-io</artifactId>
@@ -200,33 +189,7 @@
                 <artifactId>fastjson</artifactId>
                 <version>1.2.3</version>
             </dependency>
-            <!-- slf4j -->
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>slf4j-api</artifactId>
-                <version>${slf4j.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>jcl-over-slf4j</artifactId>
-                <version>${slf4j.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>log4j-over-slf4j</artifactId>
-                <version>${slf4j.version}</version>
-            </dependency>
-            <!-- logback -->
-            <dependency>
-                <groupId>ch.qos.logback</groupId>
-                <artifactId>logback-classic</artifactId>
-                <version>${logback.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>ch.qos.logback</groupId>
-                <artifactId>logback-core</artifactId>
-                <version>${logback.version}</version>
-            </dependency>
+
             <!-- junit -->
             <dependency>
                 <groupId>junit</groupId>
@@ -287,6 +250,48 @@
                 <artifactId>cglib-nodep</artifactId>
                 <version>${cglib.version}</version>
             </dependency>
+
+            <!--log配置 start-->
+            <!-- log4j -->
+            <dependency>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+                <version>1.2.17</version>
+            </dependency>
+            <!-- apache commons -->
+            <dependency>
+                <groupId>commons-logging</groupId>
+                <artifactId>commons-logging</artifactId>
+                <version>1.2</version>
+            </dependency>
+            <!-- slf4j -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>jcl-over-slf4j</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>log4j-over-slf4j</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <!-- logback -->
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-core</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+            <!--log配置 end-->
         </dependencies>
     </dependencyManagement>
 
@@ -296,9 +301,9 @@
             <id>dev</id>
             <properties>
                 <profiles.active>dev</profiles.active>
-                <logger.default.level>DEBUG</logger.default.level>
-                <logger.root.level>INFO</logger.root.level>
-                <logger.baseFile>/aicai/diamond/logs</logger.baseFile>
+                <root.file>STDOUT</root.file>
+                <error.file>ERRORFILE</error.file>
+                <logger.level>DEBUG</logger.level>
             </properties>
         </profile>
         <!-- 生产环境 -->
@@ -306,9 +311,9 @@
             <id>online</id>
             <properties>
                 <profiles.active>online</profiles.active>
-                <logger.default.level>INFO</logger.default.level>
-                <logger.root.level>ERROR</logger.root.level>
-                <logger.baseFile>/aicai/diamond/logs</logger.baseFile>
+                <root.file>ROOTFILE</root.file>
+                <error.file>ERRORFILE</error.file>
+                <logger.level>INFO</logger.level>
             </properties>
         </profile>
         <!-- 测试环境 -->
@@ -316,9 +321,9 @@
             <id>test</id>
             <properties>
                 <profiles.active>test</profiles.active>
-                <logger.default.level>DEBUG</logger.default.level>
-                <logger.root.level>DEBUG</logger.root.level>
-                <logger.baseFile>/aicai/diamond/logs</logger.baseFile>
+                <root.file>ROOTFILE</root.file>
+                <error.file>ERRORFILE</error.file>
+                <logger.level>INFO</logger.level>
             </properties>
         </profile>
         <!-- 预发环境 -->
@@ -326,13 +331,13 @@
             <id>pre</id>
             <properties>
                 <profiles.active>pre</profiles.active>
-                <logger.default.level>INFO</logger.default.level>
-                <logger.root.level>ERROR</logger.root.level>
-                <logger.baseFile>/aicai/diamond/logs</logger.baseFile>
+                <root.file>ROOTFILE</root.file>
+                <error.file>ERRORFILE</error.file>
+                <logger.level>INFO</logger.level>
             </properties>
         </profile>
     </profiles>
-    
+
     <distributionManagement>
         <repository>
             <id>guang</id>
