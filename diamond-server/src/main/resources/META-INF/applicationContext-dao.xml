@@ -38,6 +38,7 @@
 
 		<property name="filters" value="stat,config" />
 		<property name="connectionProperties" value="config.decrypt=true" />
+		<property name="connectionInitSqls" value="set names utf8;"/>
 	</bean>
 	
 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">

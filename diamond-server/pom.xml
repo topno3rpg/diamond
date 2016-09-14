@@ -213,9 +213,9 @@
             <id>dev</id>
             <properties>
                 <profiles.active>dev</profiles.active>
-                <root.file>STDOUT</root.file>
+                <root.file>ROOTFILE</root.file>
                 <error.file>ERRORFILE</error.file>
-                <logger.level>ALL</logger.level>
+                <logger.level>INFO</logger.level>
             </properties>
         </profile>
         <!-- 生产环境 -->
