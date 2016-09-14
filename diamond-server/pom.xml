@@ -30,7 +30,7 @@
                     </connectors>
                     <!-- 自动发现改变是时间，进行热部署，默认是0，不热部署 -->
                     <scanIntervalSeconds>1</scanIntervalSeconds>
-                    <webAppSourceDirectory>target/ROOT</webAppSourceDirectory>
+                    <webAppSourceDirectory>target/ROOT/</webAppSourceDirectory>
                     <webAppConfig>
                         <contextPath>/</contextPath>
                     </webAppConfig>
@@ -215,7 +215,7 @@
                 <profiles.active>dev</profiles.active>
                 <root.file>STDOUT</root.file>
                 <error.file>ERRORFILE</error.file>
-                <logger.level>DEBUG</logger.level>
+                <logger.level>ALL</logger.level>
             </properties>
         </profile>
         <!-- 生产环境 -->

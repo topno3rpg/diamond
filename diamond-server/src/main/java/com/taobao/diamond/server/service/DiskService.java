@@ -21,7 +21,7 @@ import com.taobao.diamond.server.exception.ConfigServiceException;
 
 /**
  * 磁盘操作服务
- * 
+ *
  * @author boyan
  * @date 2010-5-4
  */
@@ -52,7 +52,7 @@ public class DiskService implements ServletContextAware {
 
     /**
      * 单元测试用
-     * 
+     *
      * @return
      */
     public ConcurrentHashMap<String, Boolean> getModifyMarkCache() {
@@ -62,7 +62,7 @@ public class DiskService implements ServletContextAware {
 
     /**
      * 获取配置文件路径, 单元测试用
-     * 
+     *
      * @param dataId
      * @param group
      * @return
@@ -83,7 +83,7 @@ public class DiskService implements ServletContextAware {
             File tempFile = null;
             try {
                 // 目标目录
-                String groupPath = getFilePath(Constants.BASE_DIR + "/" + group);
+                String groupPath = getFilePath("/" + Constants.BASE_DIR + "/" + group);
                 createDirIfNessary(groupPath);
                 // 目标文件
                 File targetFile = createFileIfNessary(groupPath, dataId);
@@ -93,13 +93,11 @@ public class DiskService implements ServletContextAware {
                 FileUtils.writeStringToFile(tempFile, content, Constants.ENCODE);
                 // 用临时文件覆盖目标文件, 完成本次磁盘操作
                 FileUtils.copyFile(tempFile, targetFile);
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 String errorMsg = "save disk error, dataId=" + dataId + ",group=" + group;
                 log.error(errorMsg, e);
                 throw new ConfigServiceException(errorMsg, e);
-            }
-            finally {
+            } finally {
                 // 删除临时文件
                 if (tempFile != null && tempFile.exists()) {
                     FileUtils.deleteQuietly(tempFile);
@@ -107,8 +105,7 @@ public class DiskService implements ServletContextAware {
                 // 清除标记
                 this.modifyMarkCache.remove(cacheKey);
             }
-        }
-        else {
+        } else {
             throw new ConfigServiceException("config info is being motified, dataId=" + dataId + ",group=" + group);
         }
 
@@ -122,10 +119,9 @@ public class DiskService implements ServletContextAware {
 
     /**
      * 生成缓存key，用于标记文件是否正在被修改
-     * 
+     *
      * @param group
      * @param dataId
-     * 
      * @return
      */
     public final String generateCacheKey(String group, String dataId) {
@@ -154,18 +150,15 @@ public class DiskService implements ServletContextAware {
                 }
 
                 FileUtils.deleteQuietly(dataFile);
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 String errorMsg = "delete config info error, dataId=" + dataId + ",group=" + group;
                 log.error(errorMsg, e);
                 throw new ConfigServiceException(errorMsg, e);
-            }
-            finally {
+            } finally {
                 // 清除标记
                 this.modifyMarkCache.remove(cacheKey);
             }
-        }
-        else {
+        } else {
             throw new ConfigServiceException("config info is being motified, dataId=" + dataId + ",group=" + group);
         }
     }
