@@ -75,7 +75,7 @@ public class ExtendPropertiesFactoryBean extends PropertiesFactoryBean {
         try {
             File file = new File(filePath);
             if (!file.exists()) {
-                file.mkdir();
+                file.createNewFile();
             }
             out = new FileOutputStream(file);
 
