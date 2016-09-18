@@ -54,7 +54,12 @@ public class ExtendPropertiesFactoryBean extends PropertiesFactoryBean {
     void loadConfigByDataId(String dataId, String config) throws IOException {
         if ("logconfig".equalsIgnoreCase(dataId)) {
             //加载日志配置
-            loadLogConfig(config);
+            String fileName = "log4j.properties";
+            loadLogConfig(fileName, config);
+        } else if ("dubboconfig".equalsIgnoreCase(dataId)) {
+            //加载日志配置
+            String fileName = "dubbo.properties";
+            loadLogConfig(fileName, config);
         } else {
             //加载KEY-VALUE配置
             Properties properties = new Properties();
@@ -63,8 +68,8 @@ public class ExtendPropertiesFactoryBean extends PropertiesFactoryBean {
         }
     }
 
-    void loadLogConfig(String config) throws IOException {
-        String filePath = ExtendPropertiesFactoryBean.class.getResource("/").getPath() + "log4j.properties";
+    void loadLogConfig(String fileName, String config) throws IOException {
+        String filePath = ExtendPropertiesFactoryBean.class.getResource("/").getPath() + fileName;
         FileOutputStream out = null;
         PrintWriter writer = null;
         try {
