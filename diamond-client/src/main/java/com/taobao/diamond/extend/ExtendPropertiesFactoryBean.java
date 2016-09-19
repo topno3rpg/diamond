@@ -107,13 +107,13 @@ public class ExtendPropertiesFactoryBean extends PropertiesFactoryBean {
 
         PropertyConfigurator.configure(filePath);//刷新配置文件
         if (logger.isDebugEnabled()) {
-            System.out.println("debug!!");
+            System.out.println("log level is debug!");
         }
         if (logger.isInfoEnabled()) {
-            System.out.println("info!!");
+            System.out.println("log level is  info!");
         }
         if (logger.isErrorEnabled()) {
-            System.out.println("error!!");
+            System.out.println("log level is  error!");
         }
     }
 
