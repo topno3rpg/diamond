@@ -17,6 +17,12 @@ import java.util.concurrent.Executor;
  * Created by Guozp on 2016/8/8.
  */
 public class ExtendPropertiesFactoryBean extends PropertiesFactoryBean {
+    private static final String log_config = "logconfig";
+    private static final String dubbo_config = "dubboconfig";
+    private static final String freemarker_config = "freemarker";
+    private static final String config_suff = ".properties";
+    private static final String config_charset = "UTF-8";
+
     Logger logger = LoggerFactory.getLogger(ExtendPropertiesFactoryBean.class);
 
     void loadConfig(String[/*groupId*/][/*dataId*/] configs) {
@@ -52,13 +58,17 @@ public class ExtendPropertiesFactoryBean extends PropertiesFactoryBean {
     }
 
     void loadConfigByDataId(String dataId, String config) throws IOException {
-        if ("logconfig".equalsIgnoreCase(dataId)) {
+        if (log_config.equalsIgnoreCase(dataId)) {
             //加载日志配置
-            String fileName = "log4j.properties";
+            String fileName = log_config + config_suff;
             loadLogConfig(fileName, config);
-        } else if ("dubboconfig".equalsIgnoreCase(dataId)) {
-            //加载日志配置
-            String fileName = "dubbo.properties";
+        } else if (dubbo_config.equalsIgnoreCase(dataId)) {
+            //加载dubbo配置
+            String fileName = dubbo_config + config_suff;
+            loadLogConfig(fileName, config);
+        } else if (freemarker_config.equalsIgnoreCase(dataId)) {
+            //加载freemarker配置
+            String fileName = freemarker_config + config_suff;
             loadLogConfig(fileName, config);
         } else {
             //加载KEY-VALUE配置
@@ -80,7 +90,7 @@ public class ExtendPropertiesFactoryBean extends PropertiesFactoryBean {
             out = new FileOutputStream(file);
 
             BufferedOutputStream stream = new BufferedOutputStream(out);
-            writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(stream, "UTF-8")));
+            writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(stream, config_charset)));
             writer.write(config);
             writer.flush();
         } catch (FileNotFoundException e) {
