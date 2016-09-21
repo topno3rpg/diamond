@@ -18,7 +18,9 @@ import java.util.concurrent.Executor;
  */
 public class ExtendPropertiesFactoryBean extends PropertiesFactoryBean {
     private static final String log_config = "logconfig";
+    private static final String log_config_file = "log4j";
     private static final String dubbo_config = "dubboconfig";
+    private static final String dubbo_config_file = "dubbo";
     private static final String freemarker_config = "freemarker";
     private static final String config_suff = ".properties";
     private static final String config_charset = "UTF-8";
@@ -60,11 +62,11 @@ public class ExtendPropertiesFactoryBean extends PropertiesFactoryBean {
     void loadConfigByDataId(String dataId, String config) throws IOException {
         if (log_config.equalsIgnoreCase(dataId)) {
             //加载日志配置
-            String fileName = log_config + config_suff;
+            String fileName = log_config_file + config_suff;
             loadLogConfig(fileName, config);
         } else if (dubbo_config.equalsIgnoreCase(dataId)) {
             //加载dubbo配置
-            String fileName = dubbo_config + config_suff;
+            String fileName = dubbo_config_file + config_suff;
             loadLogConfig(fileName, config);
         } else if (freemarker_config.equalsIgnoreCase(dataId)) {
             //加载freemarker配置
