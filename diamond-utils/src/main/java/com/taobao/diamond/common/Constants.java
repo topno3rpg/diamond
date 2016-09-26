@@ -19,9 +19,9 @@ public class Constants {
 //
 //    public static final String DAILY_DOMAINNAME = "config.aicai.com";
 
-    public static final String DEFAULT_DOMAINNAME = "192.168.4.104";
+    public static final String DEFAULT_DOMAINNAME = "192.168.4.107";
 
-    public static final String DAILY_DOMAINNAME = "192.168.4.104";
+    public static final String DAILY_DOMAINNAME = "192.168.4.107";
 
     public static final int DEFAULT_PORT = 8888;
 
