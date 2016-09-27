@@ -14,14 +14,10 @@ public class Constants {
     public static final String DEFAULT_GROUP = "DEFAULT_GROUP";
 
     public static final String BASE_DIR = "config-data";
-//
-//    public static final String DEFAULT_DOMAINNAME = "config.aicai.com";
-//
-//    public static final String DAILY_DOMAINNAME = "config.aicai.com";
 
-    public static final String DEFAULT_DOMAINNAME = "192.168.4.104";
+    public static final String DEFAULT_DOMAINNAME = "config.aicai.com";
 
-    public static final String DAILY_DOMAINNAME = "192.168.4.104";
+    public static final String DAILY_DOMAINNAME = "config.aicai.com";
 
     public static final int DEFAULT_PORT = 8888;
 
