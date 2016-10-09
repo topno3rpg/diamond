@@ -10,7 +10,7 @@ public class JdbcPassword {
 
     @Test
     public void encryptPassword() throws Exception {
-        System.out.println(ConfigTools.encrypt("123456"));
+        System.out.println(ConfigTools.encrypt("diamondfC0oaJEm"));
     }
 
 }

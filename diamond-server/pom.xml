@@ -230,9 +230,27 @@
         </profile>
         <!-- 测试环境 -->
         <profile>
-            <id>test</id>
+            <id>run</id>
             <properties>
-                <profiles.active>test</profiles.active>
+                <profiles.active>run</profiles.active>
+                <root.file>ROOTFILE</root.file>
+                <error.file>ERRORFILE</error.file>
+                <logger.level>INFO</logger.level>
+            </properties>
+        </profile>
+        <profile>
+            <id>test1</id>
+            <properties>
+                <profiles.active>test1</profiles.active>
+                <root.file>ROOTFILE</root.file>
+                <error.file>ERRORFILE</error.file>
+                <logger.level>INFO</logger.level>
+            </properties>
+        </profile>
+        <profile>
+            <id>test2</id>
+            <properties>
+                <profiles.active>test2</profiles.active>
                 <root.file>ROOTFILE</root.file>
                 <error.file>ERRORFILE</error.file>
                 <logger.level>INFO</logger.level>
