@@ -40,7 +40,13 @@
     <beans profile="online">
         <bean id="propertyPlaceholderConfigurer"
               class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
-            <property name="location" value="classpath:/env/config-online.properties"/>
+            <property name="ignoreResourceNotFound" value="true"/>
+            <property name="locations">
+                <list>
+                    <value>classpath:/env/config-online.properties</value>
+                    <value>file:/tmp/config-private.properties</value>
+                </list>
+            </property>
         </bean>
     </beans>
 </beans>
