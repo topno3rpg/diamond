@@ -44,7 +44,7 @@
             <property name="locations">
                 <list>
                     <value>classpath:/env/config-online.properties</value>
-                    <value>file:/tmp/config-private.properties</value>
+                    <value>file:/mnt/dat1/aicai/apache-tomcat-8.0.36/conf/config-private.properties</value>
                 </list>
             </property>
         </bean>
