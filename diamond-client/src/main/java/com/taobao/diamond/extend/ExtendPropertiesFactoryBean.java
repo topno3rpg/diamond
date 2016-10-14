@@ -24,6 +24,7 @@ public class ExtendPropertiesFactoryBean extends PropertiesFactoryBean {
     private static final String freemarker_config = "freemarker";
     private static final String config_suff = ".properties";
     private static final String config_charset = "UTF-8";
+    private static final String system_config = "systemconfig";
 
     Logger logger = LoggerFactory.getLogger(ExtendPropertiesFactoryBean.class);
 
@@ -71,6 +72,9 @@ public class ExtendPropertiesFactoryBean extends PropertiesFactoryBean {
         } else if (freemarker_config.equalsIgnoreCase(dataId)) {
             //加载freemarker配置
             String fileName = freemarker_config + config_suff;
+            loadLogConfig(fileName, config);
+        } else if (system_config.equalsIgnoreCase(dataId)) {
+            String fileName = system_config + config_suff;
             loadLogConfig(fileName, config);
         } else {
             //加载KEY-VALUE配置
