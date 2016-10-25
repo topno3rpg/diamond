@@ -15,9 +15,9 @@ public class Constants {
 
     public static final String BASE_DIR = "config-data";
 
-    public static final String DEFAULT_DOMAINNAME = "config.aicai.com";
+    public static final String DEFAULT_DOMAINNAME = "config.aixuedai.com";
 
-    public static final String DAILY_DOMAINNAME = "config.aicai.com";
+    public static final String DAILY_DOMAINNAME = "config.aixuedai.com";
 
     public static final int DEFAULT_PORT = 8888;
 
