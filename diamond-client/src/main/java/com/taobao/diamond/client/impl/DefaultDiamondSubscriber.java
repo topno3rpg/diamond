@@ -665,7 +665,7 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
         StringBuilder buf = new StringBuilder();
         buf.append("dataId=").append(dataId);
         buf.append(" ,group=").append(group);
-        buf.append(" ,content=").append(configInfo);
+//        buf.append(" ,content=").append(configInfo);
         dataLog.info(buf.toString());
 
         return configInfo;

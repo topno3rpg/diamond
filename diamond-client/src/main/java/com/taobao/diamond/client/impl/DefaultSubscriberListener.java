@@ -20,9 +20,8 @@ import com.taobao.diamond.utils.LoggerInit;
 
 /**
  * 业务监听器的聚集。
- * 
+ *
  * @author leiwen.zh
- * 
  */
 public class DefaultSubscriberListener implements SubscriberListener {
 
@@ -56,8 +55,7 @@ public class DefaultSubscriberListener implements SubscriberListener {
         for (ManagerListener listener : listeners) {
             try {
                 notifyListener(configureInfomation, listener);
-            }
-            catch (Throwable t) {
+            } catch (Throwable t) {
                 dataLog.error("call listener error, dataId=" + dataId + ", group=" + group, t);
             }
         }
@@ -73,15 +71,16 @@ public class DefaultSubscriberListener implements SubscriberListener {
         final String group = configureInfomation.getGroup();
         final String content = configureInfomation.getConfigureInfomation();
 
+//        dataLog.info("[notify-listener] call listener " + listener.getClass().getName() + ", for " + dataId + ", "
+//                + group + ", " + content);
         dataLog.info("[notify-listener] call listener " + listener.getClass().getName() + ", for " + dataId + ", "
-                + group + ", " + content);
+                + group);
 
         Runnable job = new Runnable() {
             public void run() {
                 try {
                     listener.receiveConfigInfo(content);
-                }
-                catch (Throwable t) {
+                } catch (Throwable t) {
                     dataLog.error(t.getMessage(), t);
                 }
             }
@@ -89,8 +88,7 @@ public class DefaultSubscriberListener implements SubscriberListener {
 
         if (null != listener.getExecutor()) {
             listener.getExecutor().execute(job);
-        }
-        else {
+        } else {
             job.run();
         }
     }
@@ -118,7 +116,7 @@ public class DefaultSubscriberListener implements SubscriberListener {
 
     /**
      * 删除一个DataID对应的所有的ManagerListeners
-     * 
+     *
      * @param dataId
      */
     public void removeManagerListeners(String dataId, String group) {
@@ -133,7 +131,7 @@ public class DefaultSubscriberListener implements SubscriberListener {
 
     /**
      * 添加一个DataID对应的一些ManagerListener
-     * 
+     *
      * @param dataId
      * @param addListeners
      */
