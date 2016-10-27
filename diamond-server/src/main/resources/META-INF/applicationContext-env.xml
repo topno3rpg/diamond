@@ -29,6 +29,12 @@
             <property name="location" value="classpath:/env/config-jx2.properties"/>
         </bean>
     </beans>
+    <beans profile="test3">
+        <bean id="propertyPlaceholderConfigurer"
+              class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
+            <property name="location" value="classpath:/env/config-changsha.properties"/>
+        </bean>
+    </beans>
 
     <beans profile="pre">
         <bean id="propertyPlaceholderConfigurer"

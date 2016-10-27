@@ -256,6 +256,15 @@
                 <logger.level>INFO</logger.level>
             </properties>
         </profile>
+        <profile>
+            <id>test3</id>
+            <properties>
+                <profiles.active>test3</profiles.active>
+                <root.file>ROOTFILE</root.file>
+                <error.file>ERRORFILE</error.file>
+                <logger.level>INFO</logger.level>
+            </properties>
+        </profile>
         <!-- 预发环境 -->
         <profile>
             <id>pre</id>
