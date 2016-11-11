@@ -25,6 +25,7 @@ public class ExtendPropertiesFactoryBean extends PropertiesFactoryBean {
     private static final String config_suff = ".properties";
     private static final String config_charset = "UTF-8";
     private static final String system_config = "systemconfig";
+    private static final String alipay_config = "alipay";
 
     Logger logger = LoggerFactory.getLogger(ExtendPropertiesFactoryBean.class);
 
@@ -75,6 +76,9 @@ public class ExtendPropertiesFactoryBean extends PropertiesFactoryBean {
             loadLogConfig(fileName, config);
         } else if (system_config.equalsIgnoreCase(dataId)) {
             String fileName = system_config + config_suff;
+            loadLogConfig(fileName, config);
+        } else if (alipay_config.equalsIgnoreCase(dataId)) {
+            String fileName = alipay_config + config_suff;
             loadLogConfig(fileName, config);
         } else {
             //加载KEY-VALUE配置
