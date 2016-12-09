@@ -17,6 +17,12 @@
             <property name="location" value="classpath:/env/config-run.properties"/>
         </bean>
     </beans>
+    <beans profile="run2">
+        <bean id="propertyPlaceholderConfigurer"
+              class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
+            <property name="location" value="classpath:/env/config-run2.properties"/>
+        </bean>
+    </beans>
     <beans profile="test1">
         <bean id="propertyPlaceholderConfigurer"
               class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">

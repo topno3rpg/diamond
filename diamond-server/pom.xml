@@ -239,6 +239,15 @@
             </properties>
         </profile>
         <profile>
+            <id>run2</id>
+            <properties>
+                <profiles.active>run2</profiles.active>
+                <root.file>ROOTFILE</root.file>
+                <error.file>ERRORFILE</error.file>
+                <logger.level>INFO</logger.level>
+            </properties>
+        </profile>
+        <profile>
             <id>test1</id>
             <properties>
                 <profiles.active>test1</profiles.active>
